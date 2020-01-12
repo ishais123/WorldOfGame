@@ -2,7 +2,7 @@ from random import randint
 
 
 def generate_number(difficulty):
-    secret_number = randint(1, difficulty)
+    secret_number = randint(1, diffi:wqculty)
     return int(secret_number)
 
 
