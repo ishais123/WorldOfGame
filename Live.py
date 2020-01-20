@@ -1,5 +1,7 @@
 import GuessGame
 import MemoryGame
+import CurrencyRouletteGame
+
 
 def welcome(name):
     output = "Hello {} and welcome to the World of Games (WoG).\nHere you can find many cool games to play".format(name)
@@ -21,4 +23,8 @@ def load_game():
         MemoryGame.play(difficulty)
     if game_to_play == 2:
         GuessGame.play(difficulty)
+    if game_to_play == 3:
+        if CurrencyRouletteGame.play(difficulty):
+            print("you won")
+
 
