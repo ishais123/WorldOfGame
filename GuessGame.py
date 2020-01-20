@@ -2,11 +2,13 @@ from random import randint
 
 
 def generate_number(difficulty):
-    secret_number = randint(1, diffi:wqculty)
+    secret_number = randint(1, difficulty)
     return int(secret_number)
 
 
 def get_guess_from_user(difficulty):
+    print("\n----------------\n")
+    print("Hello and welcome to GuessGame")
     user_guess = input("Please enter a number between 1 to {}: \n".format(difficulty))
     return int(user_guess)
 
@@ -20,7 +22,7 @@ def play(difficulty):
     secret = generate_number(difficulty)
     guess = get_guess_from_user(difficulty)
     if compare_results(secret, guess):
-        print("you and the pc choose the number {} so, You won the game !!!".format(secret))
+        print(f"you and the pc choose the number {secret} so, You won the game !!!")
     else:
-        print("the pc generated the number {} and you choose {} so, you lose :(".format(secret, guess))
+        print(f"the pc generated the number {secret} and you choose {guess} so, you lose :(")
 

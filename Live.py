@@ -1,5 +1,5 @@
 import GuessGame
-
+import MemoryGame
 
 def welcome(name):
     output = "Hello {} and welcome to the World of Games (WoG).\nHere you can find many cool games to play".format(name)
@@ -17,7 +17,8 @@ def load_game():
     difficulty = int(input("\nPlease choose game difficulty from 1 to 5: "))
     if difficulty not in range(1, 5):
         raise ValueError
-    if game_to_play == "2":
+    if game_to_play == 1:
+        MemoryGame.play(difficulty)
+    if game_to_play == 2:
         GuessGame.play(difficulty)
-
 
