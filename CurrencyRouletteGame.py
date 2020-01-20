@@ -6,11 +6,13 @@ def get_guess_from_user():
     print("\n----------------\n")
     print("Hello and welcome to CurrencyRouletteGame")
     user_guess = input ("Please guess a number: ")
+    if user_guess not in range(1,101):
+        raise ValueError
     return user_guess
 
 
 def get_money_interval(difficulty):
-    random = randint(1, 100)
+    random = randint(1, 101)
     # print(f"the random is{random}")
     url = "https://api.exchangerate-api.com/v4/latest/USD"
     payload = {}
@@ -24,16 +26,18 @@ def get_money_interval(difficulty):
 
 
 def play(difficulty):
-    user_guess = get_guess_from_user()
-    interval = get_money_interval(difficulty)
-    # print(f"the min is {interval[0]}")
-    # print(f"the max is {interval[1]}")
-    if interval[1] >= float(user_guess) >= interval[0]:
-        print("\n-------YOU WON THE GAME---------\n")
-        return True
-    else:
-        end_message = f"Sorry but your number was {user_guess}" \
-                      f" and the to won the game you had to choose number between {interval[0]} to {interval[1]}"
-        print("\n-------YOU LOSE THE GAME---------\n")
-        print(end_message)
-        return False
+    try:
+        user_guess = get_guess_from_user()
+        interval = get_money_interval(difficulty)
+        # print(f"the min is {interval[0]}")
+        # print(f"the max is {interval[1]}")
+        if interval[1] >= float(user_guess) >= interval[0]:
+            return True
+        else:
+            end_message = f"Sorry but your number was {user_guess}" \
+                          f" and the to won the game you had to choose number between {interval[0]} to {interval[1]}"
+            print("\n-------YOU LOSE THE GAME---------\n")
+            print(end_message)
+            return False
+    except ValueError:
+        raise ValueError

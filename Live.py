@@ -19,12 +19,14 @@ def load_game():
     difficulty = int(input("\nPlease choose game difficulty from 1 to 5: "))
     if difficulty not in range(1, 5):
         raise ValueError
-    if game_to_play == 1:
-        MemoryGame.play(difficulty)
-    if game_to_play == 2:
-        GuessGame.play(difficulty)
-    if game_to_play == 3:
-        if CurrencyRouletteGame.play(difficulty):
-            print("you won")
-
+    try:
+        if game_to_play == 1:
+            MemoryGame.play(difficulty)
+        if game_to_play == 2:
+            GuessGame.play(difficulty)
+            if game_to_play == 3:
+                if CurrencyRouletteGame.play(difficulty):
+                    print("\n-------YOU WON THE GAME---------\n")
+    except ValueError:
+        raise ValueError
 
