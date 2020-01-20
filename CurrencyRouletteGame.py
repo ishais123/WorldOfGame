@@ -6,7 +6,7 @@ def get_guess_from_user():
     print("\n----------------\n")
     print("Hello and welcome to CurrencyRouletteGame")
     user_guess = input ("Please guess a number: ")
-    if user_guess not in range(1,101):
+    if user_guess not in range(1, 101):
         raise ValueError
     return user_guess
 
@@ -17,7 +17,7 @@ def get_money_interval(difficulty):
     url = "https://api.exchangerate-api.com/v4/latest/USD"
     payload = {}
     headers = {}
-    response = requests.request("GET", url, headers=headers, data = payload)
+    response = requests.request("GET", url, headers=headers, data=payload)
     to_json = response.json()
     rate = to_json.get("rates").get("ILS")
     # print(f"the rate is{rate}")
