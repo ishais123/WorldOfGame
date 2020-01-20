@@ -29,10 +29,11 @@ def play(difficulty):
     # print(f"the min is {interval[0]}")
     # print(f"the max is {interval[1]}")
     if interval[1] >= float(user_guess) >= interval[0]:
+        print("\n-------YOU WON THE GAME---------\n")
         return True
     else:
         end_message = f"Sorry but your number was {user_guess}" \
                       f" and the to won the game you had to choose number between {interval[0]} to {interval[1]}"
-        print("\n----------------\n")
+        print("\n-------YOU LOSE THE GAME---------\n")
         print(end_message)
         return False
