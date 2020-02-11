@@ -1,6 +1,10 @@
 from Live import load_game, welcome
+from colorama import init
 
-print(welcome("ishai"))
+init()  # colors for prints (Mandatory!!)
+
+print(welcome("ishai")[0])
+print(welcome("ishai")[1])
 try:
     load_game()
 

@@ -9,8 +9,9 @@ def generate_number(difficulty):
 def get_guess_from_user(difficulty):
     print("\n----------------\n")
     print("Hello and welcome to GuessGame")
-    user_guess = input(f"Please enter a number between 1 to {difficulty}: \n")
+    user_guess = int(input(f"Please enter a number between 1 to {difficulty}: \n"))
     if user_guess not in range(1, difficulty):
+        print("not in rage")
         raise ValueError
     return int(user_guess)
 

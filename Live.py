@@ -1,11 +1,17 @@
 import GuessGame
 import MemoryGame
 import CurrencyRouletteGame
-
+from colorama import init
+from termcolor import colored
+import pyfiglet
 
 def welcome(name):
+    init()  # colors for prints (Mandatory!!)
+    font = pyfiglet.Figlet(font='standard')
+    welcome_message = font.renderText("World  Of  Games")
+    # print(welcome_message)
     output = f"Hello {name} and welcome to the World of Games (WoG).\nHere you can find many cool games to play"
-    return output
+    return welcome_message, output
 
 
 def load_game():
@@ -20,7 +26,11 @@ def load_game():
         raise ValueError
     try:
         if game_to_play == 1:
-            MemoryGame.play(difficulty)
+            if MemoryGame.play(difficulty):
+                print("You won the game")
+            else:
+                print("You lose the game")
+
         if game_to_play == 2:
             GuessGame.play(difficulty)
             if game_to_play == 3:
