@@ -27,7 +27,9 @@ def play(difficulty):
         guess = get_guess_from_user(difficulty)
         if compare_results(secret, guess):
             print(f"you and the pc choose the number {secret} so, You won the game !!!")
+            return True
         else:
             print(f"the pc generated the number {secret} and you choose {guess} so, you lose :(")
+            return False
     except ValueError:
         raise ValueError

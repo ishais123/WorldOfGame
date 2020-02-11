@@ -1,6 +1,7 @@
 import GuessGame
 import MemoryGame
 import CurrencyRouletteGame
+import Score
 from colorama import init
 from termcolor import colored
 import pyfiglet
@@ -28,13 +29,17 @@ def load_game():
         if game_to_play == 1:
             if MemoryGame.play(difficulty):
                 print("You won the game")
+                Score.add_score(difficulty)
             else:
                 print("You lose the game")
 
         if game_to_play == 2:
-            GuessGame.play(difficulty)
+            if GuessGame.play(difficulty):
+                Score.add_score(difficulty)
+
             if game_to_play == 3:
                 if CurrencyRouletteGame.play(difficulty):
+                    Score.add_score(difficulty)
                     print("\n-------YOU WON THE GAME---------\n")
     except ValueError:
         raise ValueError
