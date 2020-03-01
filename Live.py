@@ -6,6 +6,7 @@ from colorama import init
 from termcolor import colored
 import pyfiglet
 
+
 def welcome(name):
     init()  # colors for prints (Mandatory!!)
     font = pyfiglet.Figlet(font='standard')

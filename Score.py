@@ -1,4 +1,3 @@
-
 def add_score(difficulty):
     score = difficulty*3+5
     try:
@@ -12,5 +11,3 @@ def add_score(difficulty):
         with open('Scores.txt', 'w') as file:
             file.write(str(score))
 
-
-add_score(3)
